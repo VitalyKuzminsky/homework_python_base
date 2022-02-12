@@ -1,0 +1,77 @@
+Решение в другой хронологии:
+1. ВО только те, что создал при изучении урока 4:
+$ ls -la
+total 5
+drwxr-xr-x 1 01 197121  0 Feb 10 14:53 ./
+drwxr-xr-x 1 01 197121  0 Feb  9 17:02 ../
+drwxr-xr-x 1 01 197121  0 Feb  9 19:42 friend_virt/
+drwxr-xr-x 1 01 197121  0 Feb  8 22:29 my_virt/
+drwxr-xr-x 1 01 197121  0 Feb 10 14:53 new_virt/
+-rw-r--r-- 1 01 197121 29 Feb  9 17:39 requirements.txt
+
+2. Создание ВО:
+$ python -m venv task_virt
+
+$ ls -la
+total 5
+drwxr-xr-x 1 01 197121  0 Feb 11 17:42 ./
+drwxr-xr-x 1 01 197121  0 Feb  9 17:02 ../
+drwxr-xr-x 1 01 197121  0 Feb  9 19:42 friend_virt/
+drwxr-xr-x 1 01 197121  0 Feb  8 22:29 my_virt/
+drwxr-xr-x 1 01 197121  0 Feb 10 14:53 new_virt/
+-rw-r--r-- 1 01 197121 29 Feb  9 17:39 requirements.txt
+drwxr-xr-x 1 01 197121  0 Feb 11 17:42 task_virt/
+
+Активация ВО
+$ source task_virt/Scripts/activate
+(task_virt)
+
+В новом ВО пустота
+$ pip freeze
+(task_virt)
+
+3. Установка pillow нужной версии 7.1.1 потерпела фиаско:
+$ pip install Pillow==7.1.1
+Collecting Pillow==7.1.1
+  Downloading Pillow-7.1.1.tar.gz (38.9 MB)
+А потом ERROR: и много "непереводимой игры слов"
+
+4. Установка последнего pillow:
+$ pip install Pillow
+Collecting Pillow
+  Downloading Pillow-9.0.1-cp310-cp310-win_amd64.whl (3.2 MB)
+Installing collected packages: Pillow
+Successfully installed Pillow-9.0.1
+
+$ pip freeze
+Pillow==9.0.1
+(task_virt)
+
+$ pip show pillow
+Name: Pillow
+Version: 9.0.1
+Summary: Python Imaging Library (Fork)
+Home-page: https://python-pillow.org
+Author: Alex Clark (PIL Fork Author)
+Author-email: aclark@python-pillow.org
+License: HPND
+Location: c:\users\01\desktop\geekbrains\i_quarter\base_python\experiment\task_virt\lib\site-packages
+Requires:
+Required-by:
+(task_virt)
+
+5. Удачная установка отличной от последней версии pillow:
+$ pip install Pillow==8.4.0
+Collecting Pillow==8.4.0
+  Downloading Pillow-8.4.0-cp310-cp310-win_amd64.whl (3.2 MB)
+Installing collected packages: Pillow
+Successfully installed Pillow-8.4.0
+
+Проверка в ВО:
+$ pip freeze
+Pillow==8.4.0
+(task_virt)
+
+6. Деактивация ВО:
+$ deactivate
+(тут пусто)
